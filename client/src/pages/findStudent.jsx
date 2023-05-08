@@ -133,7 +133,7 @@ const FindStudent = () => {
                   </tbody>
               </table>
         </div>
-        <button onClick={()=>{console.log(allStudent);console.log(allStudent)}}>click shit</button>
+        {/* <button onClick={()=>{console.log(allStudent);console.log(allStudent)}}>click shit</button> */}
       </div>
     }
     </div>

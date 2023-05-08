@@ -25,6 +25,7 @@ const Home = () => {
 
               const res = await axios.get("http://localhost:8800/api/student/"+curentUser.ID)
               setallStudent(res.data)
+              setAllstudentEx(res.data)
             }
             // console.log(curentUser.ID)
           }
