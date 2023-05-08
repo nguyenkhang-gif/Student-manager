@@ -133,7 +133,7 @@ const SummaryAllStudent = () => {
 
   return (
     <div>
-    {!curentUser ? <div><h1>bạn chưa đăng nhập</h1></div>: 
+    {!curentUser ? null: 
       <div>
         <label >tên môn</label>   
               <select name="subjects" id="subject" onChange={(e)=>{setSelectedSUbject(e.target.value);console.log(allStudent)}}>
@@ -163,11 +163,11 @@ const SummaryAllStudent = () => {
               <table className={`styled-table ${isPDF}`} >
                   <thead>
                       <tr>
-                          <th>classname</th>
-                          <th>amount</th>
+                          <th>TenLop</th>
+                          <th>SiSo</th>
                           {/* <th>NgaySinh</th> */}
-                          <th>passes amount</th>
-                          <th>Rate</th>
+                          <th>TyLeDau</th>
+                          <th>PhanTram</th>
                         
                       </tr>
                   </thead>

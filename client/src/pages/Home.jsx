@@ -60,13 +60,13 @@ const Home = () => {
 
   return (
     <div>
-    {!curentUser ? <div><h1>bạn chưa đăng nhập</h1></div>: 
+    {!curentUser ? null: 
       <div>
         {/* <h1>this is the home page</h1> */}
-        <div className="search-bar-container">
+        {curentUser.route=="admin"? <div className="search-bar-container">
           <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='nhập tên học sinh' />
           <button onClick={()=>handleSearchBarChange()}>tìm</button>
-          </div>
+        </div>:null}
         <div className="container-allstudent">
               <table className="styled-table">
                   <thead>

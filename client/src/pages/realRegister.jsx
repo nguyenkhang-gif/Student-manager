@@ -35,7 +35,7 @@ const RealRegister = () => {
             <div className="form-box">
                 <div className="form-value">
                     <form action="">
-                        <h2>Register</h2>
+                        <h2>Đăng ký</h2>
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}
                             <input type="text" name ="username" onChange={handleChange} required />
@@ -52,14 +52,9 @@ const RealRegister = () => {
                             <label htmlFor="password" name ="password">Password</label>
                         </div>
                         {err && <p>{err}</p>}
-                        <div className="forget">
-                            <label htmlFor=""><input type="checkbox"/>Remember me</label>
-                            <a href="#">forget Password</a>
-                        </div>
-                        <button onClick={handleSubmit}>Log in</button>
-                        <div className="register">
-                            <p>Don't have an account? <a href="#">Register</a></p>
-                        </div>
+                        
+                        <button onClick={handleSubmit}>Đăng ký</button>
+                        
                     </form>
                 </div>
             </div>

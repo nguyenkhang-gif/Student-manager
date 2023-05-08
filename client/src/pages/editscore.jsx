@@ -56,7 +56,7 @@ const Editscore = () => {
 
   return (
     <div>
-    {!curentUser ? <div><h1>bạn chưa đăng nhập</h1></div>: 
+    {!curentUser ? null: 
       <div>
         <h1>Tên : {studentScore? studentScore[0].TenHS:null}</h1>
         <div className="container-allstudent">
@@ -82,12 +82,7 @@ const Editscore = () => {
                       </tr>:null
                      
                       )):null} 
-                     <tr >
-                        <td>trung bình</td>
-                        <td>trung bình</td>
-                        <td>tổng điểm</td>
-
-                      </tr>
+                     
                   </tbody>
               </table>
               
@@ -113,12 +108,7 @@ const Editscore = () => {
                       </tr>:null
                      
                       )):null} 
-                     <tr >
-                        <td>trung bình</td>
-                        <td>trung bình</td>
-                        <td>tổng điểm</td>
-
-                      </tr>
+                     
                   </tbody>
               </table>
         </div>

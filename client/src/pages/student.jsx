@@ -71,21 +71,25 @@ const Student = () => {
   }
 
   const handleDelete = async () => {
-    try {
-      await axios.post("http://localhost:8800/api/student/deletestudentwithID/", student)
-
-      // console.log(Date(student.NgaySinh))
-      // setallStudent(res.data)
-      // console.log(curentUser.ID)
-      // console.log(res.data)
-    } catch (err) {
-      console.log(err)
+    if(window.confirm('nhấn ok để xác nhận xóa')){
+      try {
+        await axios.post("http://localhost:8800/api/student/deletestudentwithID/", student)
+  
+        // console.log(Date(student.NgaySinh))
+        // setallStudent(res.data)
+        // console.log(curentUser.ID)
+        // console.log(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+      
     }
+    
   }
 
   return (
     <div>
-      {(!curentUser && !checkStudent()) ? <h1>bạn chưa đăng nhập</h1> :
+      {(!curentUser && !checkStudent()) ? null :
         <div className='addstudent'>
           <div className="container-input-addstudent">
             <div className="container-input-addstudent-child">
@@ -111,7 +115,8 @@ const Student = () => {
               </div>
               <div className="item-student-info">
                 <button className='btn' onClick={handleAdd}><Link className='btn' to={'/'}>cập nhật</Link></button>
-                <button className='btn' onClick={handleDelete}><Link className='btn' to={'/'}>Xóa học sinh</Link></button>
+                <button className='btn' onClick={
+                    handleDelete  }><Link className='btn' to={'/'}>Xóa học sinh</Link></button>
               </div>
             </div>
           </div>

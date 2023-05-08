@@ -95,7 +95,7 @@ const FindStudent = () => {
   }
   return (
     <div>
-    {!curentUser ? <div><h1>bạn chưa đăng nhập</h1></div>: 
+    {!curentUser ? null: 
       <div className='container-findStudent'>
         
         <div className="search-bar-container">
