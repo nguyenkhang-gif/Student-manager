@@ -20,6 +20,7 @@ const Home = () => {
             if(curentUser.route=="admin"){
               const res = await axios.get("http://localhost:8800/api/student/")
               setallStudent(res.data)
+              setAllstudentEx(res.data)
             }else{
 
               const res = await axios.get("http://localhost:8800/api/student/"+curentUser.ID)
@@ -38,12 +39,33 @@ const Home = () => {
     if(curentUser.route=="teacher")navigate('/editscore/'+id)
     if(curentUser.route=="admin")navigate('/student/'+id)
   }
+  const [allstudentEx,setAllstudentEx]= useState([])
+
+  const [searchBarInput,setSearchBarInput]= useState()
+  const handleSearchBarChange = ()=>{
+    // console.log(e.target.value)
+    const name = searchBarInput
+    let newarray=[]
+    // setAllstudentEx({allStudent})
+    allstudentEx.forEach(item=>{
+      if(item.Name.includes(name)||item.Name.includes(name.toUpperCase())||item.Name.includes(name.toLowerCase())){
+        newarray.push(item)
+        console.log(item)
+      }
+    })
+    setallStudent(newarray)
+  }
+
 
   return (
     <div>
     {!curentUser ? <div><h1>bạn chưa đăng nhập</h1></div>: 
       <div>
         {/* <h1>this is the home page</h1> */}
+        <div className="search-bar-container">
+          <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='nhập tên học sinh' />
+          <button onClick={()=>handleSearchBarChange()}>tìm</button>
+          </div>
         <div className="container-allstudent">
               <table className="styled-table">
                   <thead>

@@ -55,6 +55,15 @@ export const editStudent = (req, res) => {
         return res.json(data)
     })
 }
+export const deleteStudentWithID = (req, res) => {
+    const student = req.body.id
+   
+    const q = `delete from diem where ID=${student}`
+    db.query(q, (err, data) => {
+        if(err)console.log(err)
+        db.query(`delete from hocsinh where ID=${student}`)
+    })
+}
 
 
 export const getStudentById = (req, res) => {

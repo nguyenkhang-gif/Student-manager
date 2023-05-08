@@ -1,6 +1,6 @@
 import express from "express"
 
-import { addStudent, allStudent,editStudent,getStudentById,Student,allClasses,getStudentClassId, getStudentScore, getAllStudentScoreClassId, updateStudentScore, addStudentToClass, getAllStudentscore, sumaryALlStudentSemSub, getAllRules, deleteClassesWithID, addClassesbyName, updateAllClasses, updateAllSubject, addSubjectByName, deleteSubjectWitdhID, updateAllrules} from "../controllers/student.js"
+import { addStudent, allStudent,editStudent,getStudentById,Student,allClasses,getStudentClassId, getStudentScore, getAllStudentScoreClassId, updateStudentScore, addStudentToClass, getAllStudentscore, sumaryALlStudentSemSub, getAllRules, deleteClassesWithID, addClassesbyName, updateAllClasses, updateAllSubject, addSubjectByName, deleteSubjectWitdhID, updateAllrules, deleteStudentWithID} from "../controllers/student.js"
 
 const router = express.Router()
 
@@ -19,6 +19,7 @@ router.get('/studentscore/:ID',getStudentScore)
 router.post('/getsalltudentscorebyclassesid/:ID',getAllStudentScoreClassId)
 router.post('/updatestudentscore',updateStudentScore)
 router.post('/addstudenttoclass',addStudentToClass)
+router.post('/deletestudentwithID',deleteStudentWithID)
 
 router.post('/sumaryallstudentsemsub',sumaryALlStudentSemSub)
 
