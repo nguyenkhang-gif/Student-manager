@@ -1,0 +1,72 @@
+import React, { useState } from 'react'
+import axios from "axios"
+import { useNavigate } from 'react-router-dom'
+
+const RealRegister = () => {
+    const [newuser,setnewUser] = useState({
+        username:"",
+        password:"",
+        email:""
+    })
+
+    const [err,setErr] = useState(null)
+
+    const navigate = useNavigate()
+    const handleChange = (e)=>{
+        setnewUser((prev) => ({...prev,[e.target.name]:e.target.value}))
+    }
+    
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
+        try{
+            await axios.post("http://localhost:8800/api/auth/register", newuser)
+            navigate('/')
+            
+        }catch(err){
+            setErr(err.response.data)
+        }
+        // console.log(newuser)
+    }
+    console.log(newuser)
+  return (
+    <div>
+      <div className="containerLogin">
+        <section>
+            <div className="form-box">
+                <div className="form-value">
+                    <form action="">
+                        <h2>Register</h2>
+                        <div className="inputBox">
+                            {/* <i className="fa-solid fa-envelope"></i> */}
+                            <input type="text" name ="username" onChange={handleChange} required />
+                            <label htmlFor="username" name = "username">Username</label>
+                        </div>
+                        <div className="inputBox">
+                            {/* <i className="fa-solid fa-envelope"></i> */}
+                            <input type="email" name = "email" onChange={handleChange} required />
+                            <label htmlFor="email" name = "email">Email</label>
+                        </div>
+                        <div className="inputBox">
+                            {/* <i className="fa-solid fa-lock"></i> */}
+                            <input type="password"  name ="password" onChange={handleChange}  required />
+                            <label htmlFor="password" name ="password">Password</label>
+                        </div>
+                        {err && <p>{err}</p>}
+                        <div className="forget">
+                            <label htmlFor=""><input type="checkbox"/>Remember me</label>
+                            <a href="#">forget Password</a>
+                        </div>
+                        <button onClick={handleSubmit}>Log in</button>
+                        <div className="register">
+                            <p>Don't have an account? <a href="#">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+  )
+}
+
+export default RealRegister
