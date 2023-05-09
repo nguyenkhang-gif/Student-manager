@@ -39,7 +39,7 @@ const RealRegister = () => {
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}
                             <input type="text" name ="username" onChange={handleChange} required />
-                            <label htmlFor="username" name = "username">Username</label>
+                            <label htmlFor="username" name = "username">Tên Đăng nhập</label>
                         </div>
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}
@@ -49,9 +49,9 @@ const RealRegister = () => {
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-lock"></i> */}
                             <input type="password"  name ="password" onChange={handleChange}  required />
-                            <label htmlFor="password" name ="password">Password</label>
+                            <label htmlFor="password" name ="password">Mật khẩu</label>
                         </div>
-                        {err && <p>{err}</p>}
+                        {err? <p style={{fontSize:20,fontWeight:'700',color:'white'}}>{err}</p>:null}
                         
                         <button onClick={handleSubmit}>Đăng ký</button>
                         

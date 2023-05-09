@@ -9,11 +9,11 @@ export const Login = (req,res)=>{
 
     db.query(q,[req.body.username],(err, data)=>{
         if(err) return res.json(err)
-        if(data.length === 0)return res.status(404).json("user not found")
+        if(data.length === 0)return res.status(404).json("Không tìm thấy người dùng")
 
 
         const isPassword = bcrypt.compareSync(req.body.password, data[0].password)
-        if(!isPassword)return res.status(400).json("worng username or password")
+        if(!isPassword)return res.status(400).json("Sai username hoặc mật khẩu")
 
         const token = jwt.sign({id:data[0].id},'jwtkey')
         res.cookie("access_token",token,{
@@ -30,7 +30,7 @@ export const register = (req,res)=>{
     db.query(q, [req.body.email,req.body.username], (err,data)=>{
         if(err) return res.json(err)
 
-        if(data.length) return res.status(409).json("user alreedy exists! ")
+        if(data.length) return res.status(409).json("Người dùng đã tồn tại")
 
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(req.body.password, salt)
@@ -44,7 +44,7 @@ export const register = (req,res)=>{
         ]
         db.query(q,[values], (err,data)=>{
             if(err) return res.json(err)
-            return res.status(200).json("register success!!!")
+            return res.status(200).json("Đăng ký thành công!!!")
         })
     })
 }

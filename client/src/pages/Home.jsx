@@ -64,8 +64,8 @@ const Home = () => {
       <div>
         {/* <h1>this is the home page</h1> */}
         {curentUser.route=="admin"? <div className="search-bar-container">
-          <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='nhập tên học sinh' />
-          <button onClick={()=>handleSearchBarChange()}>tìm</button>
+          <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='Nhập tên học sinh' />
+          <button onClick={()=>handleSearchBarChange()}>Tìm</button>
         </div>:null}
         <div className="container-allstudent">
               <table className="styled-table">

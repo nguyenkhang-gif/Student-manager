@@ -99,9 +99,9 @@ const FindStudent = () => {
       <div className='container-findStudent'>
         
         <div className="search-bar-container">
-          <div className="result-counts">kết quả tìm kiếm:{allStudent.length}</div>
-          <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='nhập tên học sinh' onSubmit={()=>handleSearchBarChange()} />
-          <button onClick={()=>handleSearchBarChange()}>tìm</button>
+          <div className="result-counts">Kết quả tìm kiếm:{allStudent.length}</div>
+          <input type="text" onChange={(e)=>{setSearchBarInput(e.target.value)}} placeholder='Nhập tên học sinh' onSubmit={()=>handleSearchBarChange()} />
+          <button onClick={()=>handleSearchBarChange()}>Tìm</button>
         </div>
         <div className="container-allstudent">
               <table className="styled-table">

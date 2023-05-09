@@ -170,7 +170,7 @@ const Classes = () => {
     {!curentUser ? <h1>bạn chưa đăng nhập</h1> :curentUser.route=="admin"?
       <div className='addstudent'>
           <div className="container-classes">
-            <label >tên lớp</label>
+            <label >Tên lớp</label>
             <select name="classes" id="classes" onChange={(e)=>{setSelectedClases(e.target.value);}}>
               {allClasses.map((item)=>{
                 return(
@@ -178,7 +178,7 @@ const Classes = () => {
                 )
               })}
             </select>
-            <h1>sĩ số: {allStudent.length}</h1>
+            <h1>Sĩ số: {allStudent.length}</h1>
             </div>
           {/* <div className="container-input-addstudent">
               <input className='input-addStudent' onChange = {hanndleChange} name="Name" type="text" placeholder='Tên'  />

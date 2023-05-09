@@ -172,42 +172,42 @@ const Rulespage = () => {
             {curentUser && curentUser.route == 'admin' ?
                 <div className='rule-pages-container'>
                     <div className="container-rule">
-                        <p>thay đổi tuổi tối thiểu tối đa</p>
-                        <label htmlFor="minAge">tuổi tối thiểu</label>
+                        <p>Thay đổi tuổi tối thiểu tối đa</p>
+                        <label htmlFor="minAge">Tuổi tối thiểu</label>
                         <input onChange={(e) => {(allRules.maxAge>=e.target.value)? hanndleChange(e):alert('tuổi thấp nhất không phù hợp') }} type="number" name='minAge' value={allRules ? allRules.minAge : null} />
-                        <label htmlFor="maxAge">tuổi tối đa</label>
+                        <label htmlFor="maxAge">Tuổi tối đa</label>
                         <input onChange={(e) => {(allRules.minAge<=e.target.value)? hanndleChange(e):alert('tuổi caos nhất không phù hợp') }} type="number" name='maxAge' value={allRules ? allRules.maxAge : null} />
                     </div>
                     <div className="container-rule">
-                        <p>thay đổi sĩ số tối đa của các lớp </p>
-                        <label htmlFor="minAge">số lượng tối đa của một lớp</label>
+                        <p>Thay đổi sĩ số tối đa của các lớp </p>
+                        <label htmlFor="minAge">Số lượng tối đa của một lớp</label>
                         <input onChange={(e) => { e.target.value>0? hanndleChange(e) :alert('số lượng không phù hợp') }} type="number" name='maxStudentNum' value={allRules ? allRules.maxStudentNum : null} />
                     </div>
                     <div className="container-rule">
-                        <p>thay đổi điểm chuẩn đạt môn </p>
-                        <label htmlFor="minAge">số lượng tối đa của một lớp</label>
+                        <p>Thay đổi điểm chuẩn đạt môn </p>
+                        <label htmlFor="minAge">Điểm tối thiểu để qua môn</label>
                         <input onChange={(e) => { e.target.value>=0? hanndleChange(e):alert(' điểm không được âm') }} type="number" name='passScore' value={allRules ? allRules.passScore : null} />
                     </div>
                     <div className="container-rule">
-                        <button className='btn-update-three-rule' onClick={()=>{console.log(allRules);updateallrules();alert('handle cập nhật tuổi điểm tối đa tối thiểu sĩ số tối đa')}}>cập nhật 3 nội dung trên</button>
+                        <button className='btn-update-three-rule' onClick={()=>{console.log(allRules);updateallrules();alert('handle cập nhật tuổi điểm tối đa tối thiểu sĩ số tối đa')}}>Cập nhật 3 nội dung trên</button>
                     </div>
                     {/* phần quy định của lớp */}
 
 
                     <div className="container-rule">
-                        <p> thay đổi số lượng và tên các lớp học</p>
+                        <p> Thay đổi số lượng và tên các lớp học</p>
                         <div className="container-edit-class">
                             {allClasses.map((item, index) => {
                                 return (
                                     <div className='container-all-class'>
                                         <input type="text" name='Name' onChange={(e) => handdleclassesnamechange(e, item.LopID)} value={item.Name} />
-                                        <button className='button-delete-class' onClick={() => { alert('handle xóa lớp'); handledeleteclasses(item.LopID) }}>xóa lớp</button>
+                                        <button className='button-delete-class' onClick={() => { alert('handle xóa lớp'); handledeleteclasses(item.LopID) }}>Xóa lớp</button>
                                     </div>
                                 )
                             })}
                         </div>
                         <div className="add-class-container">
-                            <label htmlFor="edit-class">thêm lớp</label>
+                            <label htmlFor="edit-class">Thêm lớp</label>
                             <input type="text" placeholder='tên lớp' onChange={(e) => { setAddedclasses(e.target.value) }} />
                             <button onClick={() => { alert(`xử lý thêm lớp ${addedClasses}`); handleaddclasses(addedClasses) ;reloadPage()}}>thêm lớp</button>
                             <button className='button-update-subject-and-class' onClick={() => { alert('xử lý cập nhật môn '); handleupdateallclass() }}>cập nhật lớp</button>
@@ -217,23 +217,23 @@ const Rulespage = () => {
 
 
                     <div className="container-rule">
-                        <p>thay đổi số lượng tên các môn học </p>
+                        <p>Thay đổi số lượng tên các môn học </p>
                         <div className="container-edit-class">
                             {allSubject.map((item, index) => {
                                 return (
                                     item.TenHK == 'HK1' ? <div className='container-all-class'>
                                         <input type="text" name='Name' value={item.Name} onChange={(e) => { handdlesubjectnamechange(e, item.Name) }} />
-                                        <button className='button-delete-class' onClick={() => { alert('handle xóa môn'); console.log(allSubject);handledeletesubject(item.NameID) }}>xóa môn</button>
+                                        <button className='button-delete-class' onClick={() => { alert('handle xóa môn'); console.log(allSubject);handledeletesubject(item.NameID) }}>Xóa môn</button>
                                     </div> : null
                                 )
                             })}
                             {/* <button className='button-update-subject-and-class' onClick={() => { alert('xử lý cập nhật môn '); }}>cập nhật môn</button> */}
                         </div>
                         <div className="add-class-container">
-                            <label htmlFor="edit-class">thêm môn</label>
+                            <label htmlFor="edit-class">Thêm môn</label>
                             <input type="text" placeholder='tên môn' onChange={(e) => { setAddedSubject(e.target.value) }} />
-                            <button onClick={() => { alert('xử lý thêm môn '); console.log(addedSubject); handleaddsubject();reloadPage() }}>thêm môn</button>
-                            <button className='button-update-subject-and-class' onClick={() => { alert('xử lý cập nhật môn '); handleupdateallsubject() }}>cập nhật môn</button>
+                            <button onClick={() => { alert('xử lý thêm môn '); console.log(addedSubject); handleaddsubject();reloadPage() }}>Thêm môn</button>
+                            <button className='button-update-subject-and-class' onClick={() => { alert('xử lý cập nhật môn '); handleupdateallsubject() }}>Cập nhật môn</button>
                         </div>
                     </div>
                    

@@ -105,7 +105,7 @@ const Addstudent = () => {
     // console.log(all)
     if(addCon){
         // console.log("student can be add")
-        setNotify("thêm thành công")
+        setNotify("Thêm thành công")
         setStudent((prev)=>({...prev,subjects:allSubject}))
         try{
             await axios.post("http://localhost:8800/api/student/add/",student)
@@ -121,7 +121,7 @@ const Addstudent = () => {
         // setNotify("không thêm được")
       }
     else{
-      setNotify("something went wrong")
+      setNotify("Thông tin không hợp lệ")
     }
   }
 
@@ -139,25 +139,25 @@ const Addstudent = () => {
               </div>
               <div className="item-student-info">
                 <label htmlFor="Name">Giới Tính</label>
-                <input className='input-addStudent' onChange = {hanndleChange} name="GioiTinh" type="text" placeholder='giới tính' />
+                <input className='input-addStudent' onChange = {hanndleChange} name="GioiTinh" type="text" placeholder='Giới tính' />
               </div>
               <div className="item-student-info">
                 <label htmlFor="Name">Ngày Sinh</label>
-                <input className='input-addStudent' onChange = {hanndleChange} name="NgaySinh" type="date" placeholder='ngày sinh' />
+                <input className='input-addStudent' onChange = {hanndleChange} name="NgaySinh" type="date" placeholder='Ngày sinh' />
               </div>
               <div className="item-student-info">
                 <label htmlFor="Name">Địa chỉ</label>
-                <input className='input-addStudent' onChange = {hanndleChange} name="Address"type="text" placeholder='địa chỉ' />
+                <input className='input-addStudent' onChange = {hanndleChange} name="Address"type="text" placeholder='Địa chỉ' />
               </div>
               <div className="item-student-info">
                 <label htmlFor="Name">Email</label>
-                <input className='input-addStudent' onChange = {hanndleChange} name="email" type="email" placeholder='email' />
+                <input className='input-addStudent' onChange = {hanndleChange} name="email" type="email" placeholder='Email' />
               </div>
               <div className="notifycontainer">
-                <h1>{notify}</h1>
+                <p style={{color:'red',fontWeight:'bold'}}>{notify}</p>
               </div>
               <div className="item-student-info">
-              <button className='btn'onClick={handleAdd}>thêm học sinh</button>
+              <button className='btn'onClick={handleAdd}>Thêm học sinh</button>
               </div>
             </div>
           </div>

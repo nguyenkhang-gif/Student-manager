@@ -135,9 +135,9 @@ const SummaryAllStudent = () => {
     <div>
     {!curentUser ? null: 
       <div>
-        <label >tên môn</label>   
+        <label >Tên môn</label>   
               <select name="subjects" id="subject" onChange={(e)=>{setSelectedSUbject(e.target.value);console.log(allStudent)}}>
-                <option key='999' value='none' >none</option>
+                <option key='999' value='none' >Không</option>
                 {allSubject.map((item,index)=>{
                   return(
                     item.TenHK=='HK1'?<option key={index} value={item.Name} >{item.Name}</option>:null
@@ -146,7 +146,7 @@ const SummaryAllStudent = () => {
               </select>
               <label>Học kỳ</label>
               <select name="semester" id="semester" onChange={(e)=>{setSelectSemesster(e.target.value)}}>
-              <option key='999' value='999' >none</option>
+              <option key='999' value='999' >Không</option>
                 <option key ={1} value={'HK1'}>HK1</option>
                 <option key = {2} value={'HK2'}>HK2</option>
               </select>
@@ -155,11 +155,11 @@ const SummaryAllStudent = () => {
           <div className={`container-sumary-${isPDF}`} ref={reportTemplateRef}>
             <div className={`h1-containers-${isPDF}`}>
 
-            <h1 className={`h1-container-${isPDF}`}>semester:{selectSemesster?selectSemesster:null}</h1>
+            <h1 className={`h1-container-${isPDF}`}>HK:{selectSemesster?selectSemesster:null}</h1>
             {selectedSubject!='none'?  <h1 className={`h1-container-${isPDF}`}>môn:{selectedSubject?selectedSubject:null}</h1>:null}
             
             </div>
-            <h1 className='header-container'>report</h1>
+            <h1 className='header-container'>Báo cáo</h1>
               <table className={`styled-table ${isPDF}`} >
                   <thead>
                       <tr>
