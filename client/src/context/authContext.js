@@ -29,8 +29,9 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(curentUser))
     }, [curentUser])
+    const [refresh,setRefresh]=useState(true)
 
-    return <AuthContext.Provider value={{ curentUser, login, logout }}>
+    return <AuthContext.Provider value={{ curentUser, login, logout,setRefresh,refresh }}>
         {children}
     </AuthContext.Provider>
 }

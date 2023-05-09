@@ -20,7 +20,8 @@ const RealRegister = () => {
         e.preventDefault()
         try{
             await axios.post("http://localhost:8800/api/auth/register", newuser)
-            navigate('/')
+            navigate('/login')
+            setErr('Đăng ký thành công')
             
         }catch(err){
             setErr(err.response.data)
@@ -39,7 +40,7 @@ const RealRegister = () => {
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}
                             <input type="text" name ="username" onChange={handleChange} required />
-                            <label htmlFor="username" name = "username">Tên Đăng nhập</label>
+                            <label htmlFor="username" name = "username">Tên đăng nhập</label>
                         </div>
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}

@@ -111,21 +111,21 @@ const SubjectScore= () => {
   
     return (
       <div>
-      {!curentUser ? <h1>bạn chưa đăng nhập</h1> :curentUser.route=="teacher"?
+      {!curentUser ? null:curentUser.route=="teacher"?
         <div className='addstudent'>
             <div className="container-classes">
-              <label >tên lớp</label>
+              <label >Tên lớp</label>
               <select name="classes" id="classes" onChange={(e)=>{setSelectedClases(e.target.value);console.log(allStudent)}}>
-              <option key='999' value='999' >none</option>
+              <option key='999' value='999' >Không</option>
                 {allClasses.map((item)=>{
                   return(
                     <option key={item.LopID} value={item.LopID} >{item.Name}</option>
                   )
                 })}
               </select>
-              <label >tên môn</label>   
+              <label >Tên môn</label>   
               <select name="subjects" id="subject" onChange={(e)=>{setSelectedSUbject(e.target.value);console.log(allStudent)}}>
-                <option key='999' value='999' >none</option>
+                <option key='999' value='999' >Không</option>
                 {allSubject.map((item,index)=>{
                   return(
                     item.TenHK=='HK1'?<option key={index} value={item.Name} >{item.Name}</option>:null
@@ -134,11 +134,11 @@ const SubjectScore= () => {
               </select>
               <label>Học kỳ</label>
               <select name="semester" id="semester" onChange={(e)=>{setSelectSemesster(e.target.value)}}>
-              <option key='999' value='999' >none</option>
+              <option key='999' value='999' >Không</option>
                 <option key ={1} value={'HK1'}>HK1</option>
                 <option key = {2} value={'HK2'}>HK2</option>
               </select>
-              <h1>sĩ số: {allStudent.length}</h1>
+              <h1>Sĩ số: {allStudent.length}</h1>
               </div>
             
             <div className="container-allstudent">
@@ -169,7 +169,7 @@ const SubjectScore= () => {
                     </tbody>
                 </table>
           </div>
-          <button onClick={()=>{console.log(allStudent);handleUpdateStudent()}}>cập nhật </button>
+          <button onClick={()=>{console.log(allStudent);handleUpdateStudent()}}>Cập nhật </button>
         </div>:<div><h1>404 not found</h1></div>
       } 
     </div>

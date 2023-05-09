@@ -9,7 +9,7 @@ const Register = () => {
         password:""
     })
     
-    const {curentUser,login} = useContext(AuthContext)
+    const {curentUser,login,setRefresh,refresh} = useContext(AuthContext)
     console.log(curentUser)
     const [err,setErr] = useState(null)
 
@@ -31,6 +31,7 @@ const Register = () => {
              })
             navigate('/')
             
+            
         }catch(err){
             console.log(err)
             
@@ -49,7 +50,7 @@ const Register = () => {
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-envelope"></i> */}
                             <input type="text" name = "username" onChange={handleChange} required />
-                            <label className='usernameinput' htmlFor="username" name = "username">Tên Đăng nhập</label>
+                            <label className='usernameinput' htmlFor="username" name = "username">Tên đăng nhập</label>
                         </div>
                         <div className="inputBox">
                             {/* <i className="fa-solid fa-lock"></i> */}

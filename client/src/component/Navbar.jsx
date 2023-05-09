@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 const Navbar = () => {
 
-  const {curentUser,login,logout} = useContext(AuthContext)
+  const {curentUser,login,logout,setRefresh,refresh} = useContext(AuthContext)
   const [isAdmin,setIsAdmin]= useState(curentUser?curentUser.route=="admin":false)
   const [isTeacher,setIsTeacher]= useState(curentUser?curentUser.route=="teacher":false)
   // console.log(curentUser.route==="admin")
@@ -20,7 +20,7 @@ const Navbar = () => {
     if(!curentUser&&window.location.href != "http://localhost:3000/login"&&window.location.href != "http://localhost:3000/register"){
       window.location.href = "http://localhost:3000/login";
     }
-  },[curentUser])
+  },[curentUser,refresh])
   const pathname = window.location.pathname.split('/')[1]
   const ID = pathname
 
@@ -53,7 +53,7 @@ const Navbar = () => {
         <Link className={`btn Navbar-ul-Link ${pathname=='subjectscores'?'selected':'null'}`}   to={'/subjectscores'}>Nhập điểm</Link>
         <Link className={`btn Navbar-ul-Link ${pathname=='findstudent'?'selected':'null'}`}  to={'/findstudent'}>Tra cứu học sinh</Link>
         {/* <Link className='btn Navbar-ul-Link'  to={'/classes'}>Classes</Link> */}
-        </>:<h1>bạn chưa đăng nhập !</h1>
+        </>:<h1>Bạn chưa đăng nhập !</h1>
         }
       </ul>
       <div className="Navbar-input-container">

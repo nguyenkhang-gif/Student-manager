@@ -42,8 +42,8 @@ const SummaryAllStudent = () => {
     }
 
   const [allSubject,setAllSubject]= useState([])
-  const [selectedSubject,setSelectedSUbject]= useState('none')
-  const [selectSemesster,setSelectSemesster] = useState('none')
+  const [selectedSubject,setSelectedSUbject]= useState('Trống')
+  const [selectSemesster,setSelectSemesster] = useState('Trống')
   const fetchStudentScore = async ()=>{
     // lấy tất cả ác môn 
         try {
