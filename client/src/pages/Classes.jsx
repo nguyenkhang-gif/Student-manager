@@ -97,7 +97,7 @@ const Classes = () => {
   const handleAddStudent = async (e)=>{
     // console.log("ID: ", e.LopID,"lopID",selectedClasses)
     // console.log(allStudent.length)
-    if(allStudent.length <= allRules[0].maxStudentNum){
+    if(allStudent.length < allRules[0].maxStudentNum){
       try{
         if(curentUser){
           const res = await axios.post('http://localhost:8800/api/student/addstudenttoclass',{ID:e.ID,lopID:selectedClasses})
